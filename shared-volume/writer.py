@@ -14,7 +14,15 @@ def write_log():
         f.write(f"Writer: {now}\n")
     # Format output like: "RD Writer updated log file! at 10:37 PM 22nd Aug 2025"
     formatted_time = now.strftime("%I:%M %p %d %b %Y")
-    return f"RD Writer updated log file! at {formatted_time}"
+    return f"""
+    <html>
+        <head><title>Writer Service - RD</title></head>
+        <body>
+            <h3>RD Writer updated log file!</h3>
+            <p>At {formatted_time}</p>
+        </body>
+    </html>
+    """
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
