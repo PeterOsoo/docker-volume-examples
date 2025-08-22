@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reader Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        .log-container {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .log-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reader Log Viewer</h1>
+    <div class="log-container">
+        {% if logs %}
+            {% for log in logs %}
+                <div class="log-item">{{ loop.index }}. {{ log }}</div>
+            {% endfor %}
+        {% else %}
+            <p>No logs yet.</p>
+        {% endif %}
+    </div>
+    <form action="/clear" method="POST">
+        <button type="submit">Clear Logs</button>
+    </form>
+</body>
+</html>
